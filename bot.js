@@ -36,9 +36,17 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-	if (message.content === ':test')
+	if (message.content === ':help')
 	{
-		message.channel.send('a');
+		message.channel.send('To purchase Synx7, all you have to do is run a command! Type :buy [Version]. Then, your name will be added to a purchase list. The owner of Synx will then message you and give you a link to buy the exploit. (Currently Synx7V3 can only be purchased with paypal for $3.)');
+	}
+});
+
+
+client.on('message', message => {
+	if (message.content === ':howtouse')
+	{
+		message.author.send('Currently, it is very simple to use the Synx7 Exploit. Once you buy the exploit, you will be provided with a download link and a secret key. Download the files. Then you will get a folder that has all of the files necessary for running the exploit in. Open the Synx7.Exe. You will be prompted to put in your secret key. Paste it into the textbox. Then you are ready to use the exploit!');
 	}
 });
 
