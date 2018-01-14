@@ -50,6 +50,22 @@ client.on('message', message => {
 	}
 });
 
+client.on('message', message => {
+	var words = message.content.split(' ')
+	if (words[0] === ':announce') {
+		var number1 = words[1]
+		console.log(message.author.id)
+		console.log(message.author.username)
+		username = message.author.username
+		id = message.author.id
+		tag = message.author.tag
+		//var number2 = words[2]
+		//console.log('your number is', number1)
+		   //client.sendMessage('you ran the :purchase command')
+		message.guild.channels.find("name", "announcements").send(number1);
+		message.guild.channels.find("name", "logs").send(tag + " " + "ordered the purchase bot to make an announcement in the announcements channel.");
+	}
+});
 
 // Log our bot in
 client.login(token);
