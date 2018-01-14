@@ -63,7 +63,6 @@ client.on('message', message => {
 		//console.log('your number is', number1)
 		   //client.sendMessage('you ran the :purchase command')
 		message.guild.channels.find("name", "announcements").send(number1);
-		message.guild.channels.find("name", "logs").send(tag + " " + "ordered the purchase bot to make an announcement in the announcements channel.");
 	}
 });
 
