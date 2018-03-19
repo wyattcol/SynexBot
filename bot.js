@@ -18,7 +18,7 @@ client.on('message', message => {
 		username = message.author.username
 		id = message.author.id
 		tag = message.author.tag
-		message.guild.channels.find("name", "announcements").send(message.content);
+		message.guild.channels.find("name", "🚔announcements🚔").send(message.content);
 
 	}
 });
