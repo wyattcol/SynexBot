@@ -11,7 +11,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 	var words = message.content.split(' ')
-	if (words[0] === ':buy') {
+	if (words[0] === ':announce') {
 		var ClientsWords = words
 		console.log(message.author.id)
 		console.log(message.author.username)
