@@ -32,7 +32,7 @@ client.on('message', message => {
 		console.log(message.author.id)
 		console.log(message.author.username)
 		username = message.author.username
-		client.sendMessage("Tested")
+		client.message.send(author, "Tested");
 
 	}
 });
