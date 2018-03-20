@@ -19,7 +19,7 @@ client.on('message', message => {
 		console.log(message.author.username)
 		username = message.author.username
 		//message.guild.channels.find("name", "🚔announcements🚔").send(ClientsWords);
-		bot.sendMessage({ to: 🚔announcements🚔, message: txt.replace(':announce ','') 
+// 		bot.sendMessage({ to: 🚔announcements🚔, message: txt.replace(':announce ','') 
 
 	}
 });
