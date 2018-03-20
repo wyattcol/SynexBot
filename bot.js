@@ -19,9 +19,9 @@ client.on('message', message => {
 		console.log(message.author.username)
 		username = message.author.username
 		replacedmessage = message + message: txt.replace(":announce","")
-		message.guild.channels.find("name", "🚔announcements🚔").send(replacedmessage);
+// 		message.guild.channels.find("name", "🚔announcements🚔").send(replacedmessage);
 		sendMessage({ to: 🚔announcements🚔, message: txt.replace(':announce ','') 
-		client.message.send({ to: 🚔announcements🚔, message: text.replace(':announce ','') 
+// 		client.message.send({ to: 🚔announcements🚔, message: text.replace(':announce ','') 
 
 	}
 });
