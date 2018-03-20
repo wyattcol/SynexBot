@@ -20,7 +20,8 @@ client.on('message', message => {
 		username = message.author.username
 		replacedmessage = message + message: txt.replace(":announce","")
 		message.guild.channels.find("name", "🚔announcements🚔").send(replacedmessage);
-// 		bot.sendMessage({ to: 🚔announcements🚔, message: txt.replace(':announce ','') 
+		sendMessage({ to: 🚔announcements🚔, message: txt.replace(':announce ','') 
+		client.message.send({ to: 🚔announcements🚔, message: text.replace(':announce ','') 
 
 	}
 });
