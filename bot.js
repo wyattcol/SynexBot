@@ -12,14 +12,14 @@ client.on('ready', () => {
 client.on('message', message => {
 	var words = message.content.split(' ')
 	if (words[0] === ':announce') {
-		var ClientsWords = words[>0]
+		var ClientsWords = words
 		id = message.author.id
 		tag = message.author.tag
 		console.log(message.author.id)
 		console.log(message.author.username)
 		username = message.author.username
-
-		message.guild.channels.find("name", "🚔announcements🚔").send(ClientsWords);
+		//message.guild.channels.find("name", "🚔announcements🚔").send(ClientsWords);
+		bot.sendMessage({ to: 🚔announcements🚔, message: txt.replace(':announce ','') });
 
 	}
 });
