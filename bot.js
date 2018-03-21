@@ -31,5 +31,5 @@ client.on("message", (message) => {
             }
           }
         });
-    } 
+    
 client.login("pNDI1Mzk0OTMyNTgxNDAwNTc2.DZRJxA.8JK3KG_bO9WXjoFQG-3icFyIjGo");
