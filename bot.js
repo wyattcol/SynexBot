@@ -3,19 +3,27 @@ const superagent = require("superagent");
 const Client = new Discord.Client();
 const OwnerID = "425394932581400576";
 
-const prefix = ":"
+const prefix = "!"
 
 
 
 Client.on("ready", () => {
-	console.log("BOT ONLINE");
-	Client.user.setPresence({ game: { name: `SynexMC.net`, type: 0} });
+	console.log("online");
+	Client.user.setPresence({ game: { name: `Hello world`, type: 0} });
 });
 
 // welcome message
 
+Client.on("guildMemberAdd", member => {
+   member.guild.defaultChannel.send("Welcome to: " + member.guild.name + " Hope you enjoy it here")
+});
+
+Client.on("guildMemberRemove", member => {
+   member.guild.defaultChannel.send("Goodbye: " + member.user.username + " from " + member.guild.name)
+});
+
 Client.on("guildCreate", guild => {
-	console.log("Some one added the Bot to the server created by Orangedude4221")
+	console.log("Some one added the test bot to a server created by: " + guild.owner.user.username)
 });
 
 Client.on("message", async (message) => {
@@ -26,12 +34,16 @@ Client.on("message", async (message) => {
 	command = command.slice(prefix.length);
 	
 	let args = message.content.split(" ").slice(1);
+	
+	if (command === "ping") {
+		message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
+	} else
 
-	if (command === "announce") {
+	if (command === "say") {
 		message.delete()
         const embed = new Discord.RichEmbed()
 		.setColor(0x954D23)
-		.setDescription("@everyone " + "Important Announcement: " + args.join(" "));
+		.setDescription(message.author.username + " says: " + args.join(" "));
 		message.channel.send({embed})
 	} else
 
@@ -39,8 +51,11 @@ Client.on("message", async (message) => {
 		const embed = new Discord.RichEmbed()
 		.setColor(0x954D23)
 		.setTitle("Command List:")
-		.addField(":help", "Will give the current command list")
-		.addField(":announce [Text] will allow the owner to create announcements.")
+		.addField("!help", "Will give the current command list")
+		.addField("!ping", "WIll show the ping time for the bot")
+		.addField("!say [text]", "Will make the bot say something")
+		.addField("!announcement [text]", "Will make the bot say an announcement and tag everyone")
+		.addField("!cat", "Will send a random cat image");
 		message.channel.send({embed})
 	}
 
