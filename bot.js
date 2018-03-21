@@ -40,7 +40,7 @@ Client.on("message", async (message) => {
 		.setColor(0x954D23)
 		.setTitle("Command List:")
 		.addField(":help", "Will give the current command list")
-		.addField(":announce [Text] will allow the owner to create announcements")
+		.addField(":announce [Text] will allow the owner to create announcements.")
 		message.channel.send({embed})
 	}
 
