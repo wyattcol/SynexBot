@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const superagent = require("superagent");
 const Client = new Discord.Client();
-const OwnerID = "244873391717220352";
+const OwnerID = "425394932581400576";
 
 const prefix = ":"
 
@@ -46,4 +46,4 @@ Client.on("message", async (message) => {
 
 });
 
-Client.login("NDI1MDI0MDQ3NTA4NzUwMzM2.DZBaWw.JmqqYKXuA63UhdFiXyTbNWR1g24");
+Client.login("NDI1Mzk0OTMyNTgxNDAwNTc2.DZPVRg.VvWNQ1UWDhQswipG6sHf1TTuHPI");
