@@ -1,41 +1,49 @@
-
 const Discord = require('discord.js');
+const superagent = require("superagent");
+const Client = new Discord.Client();
+const OwnerID = "244873391717220352";
 
-const client = new Discord.Client();
+const prefix = ":"
 
-const token = 'NDI1Mzk0OTMyNTgxNDAwNTc2.DZGzbA.tjZdqwyGTNlK-jlRbXKvfPnoInI';
 
-client.on('ready', () => {
-  console.log('I am ready!');
+
+Client.on("ready", () => {
+	console.log("BOT ONLINE");
+	Client.user.setPresence({ game: { name: `SynexMC.net`, type: 0} });
 });
 
-// client.on('message', message => {
-// 	var words = message.content.split(' ')
-// 	if (words[0] === ':announce') {
-// 		var ClientsWords = words
-// 		id = message.author.id
-// 		tag = message.author.tag
-// 		console.log(message.author.id)
-// 		console.log(message.author.username)
-// 		username = message.author.username
-// 		replacedmessage = message + message: txt.replace(":announce","")
-// // 		message.guild.channels.find("name", "🚔announcements🚔").send(replacedmessage);
-// 		sendMessage({ to: 🚔announcements🚔, message: txt.replace(':announce ','') 
-// // 		client.message.send({ to: 🚔announcements🚔, message: text.replace(':announce ','') 
+// welcome message
 
-// 	}
-// });
+Client.on("guildCreate", guild => {
+	console.log("Some one added the Bot to the server created by Orangedude4221)
+});
 
-client.on('message', message => {
-	var words = message.content.split(' ')
-	if (words[0] === ':announce')
-	{
-	let botmessage = args.join(" ");
-	message.delete().catch();
-	message.channel.send(botmessage)
+Client.on("message", async (message) => {
+	if (message.author.bot) return;
+	if (!message.content.startsWith(prefix)) return;
+	
+	let command = message.content.split(" ")[0];
+	command = command.slice(prefix.length);
+	
+	let args = message.content.split(" ").slice(1);
+
+	if (command === "announce") {
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor(0x954D23)
+		.setDescription("@everyone " + "Important Announcement: " + args.join(" "));
+		message.channel.send({embed})
+	} else
+
+	if (command == "help") {
+		const embed = new Discord.RichEmbed()
+		.setColor(0x954D23)
+		.setTitle("Command List:")
+		.addField(":help", "Will give the current command list")
+		.addField(":announce [Text] will allow the owner to create announcements")
+		message.channel.send({embed})
 	}
+
 });
 
-
-// Log our bot in
-client.login(token);
+Client.login("NDI1MDI0MDQ3NTA4NzUwMzM2.DZBaWw.JmqqYKXuA63UhdFiXyTbNWR1g24");
