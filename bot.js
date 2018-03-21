@@ -1,64 +1,79 @@
-const Discord = require('discord.js');
-const superagent = require("superagent");
-const Client = new Discord.Client();
-const OwnerID = "425394932581400576";
+// Don't touch anything without asking GeneratedScript#3909 first. \\
 
-const prefix = "!"
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const snekfetch = require("snekfetch");
+const website = "http://xyz.potato-host.com/puddingWhitelistCheck.php?key="
+const website2 = "http://xyz.potato-host.com/puddingAddWhitelist.php?Key="
+const blacklistws = "http://xyz.potato-host.com/puddingAddBlacklist.php?Key="
+var PastebinAPI = require('pastebin-js'),
+pastebin = new PastebinAPI('3a3f03696725a46033929f7ca868f1f4');
 
+// Post update
 
-
-Client.on("ready", () => {
-	console.log("online");
-	Client.user.setPresence({ game: { name: `Hello world`, type: 0} });
+client.on("ready", () => {
+    client.channels.get("425397615778201630").send({embed: {
+        color: 3066993,
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },	
+        title: "Bot Update!",
+        url: "https://discord.gg/BpjrRK",
+        description: "SynexMC Bot has updated!",
+        fields: [{
+            name: "Added announcement command.",
+            value: "The owner can now announce things through the bot!"
+          },
+          {
+            name: " ",
+            value: " "
+          },
+          {
+              name: " ",
+              value: " "
+          },
+          {
+            name: " ",
+            value: " "
+        }
+        ],
+        timestamp: new Date(),
+        footer: {
+          icon_url: client.user.avatarURL,
+          text: " "
+        }
+      }
+    });
 });
 
-// welcome message
+// Begin Commands function \\
 
-Client.on("guildMemberAdd", member => {
-   member.guild.defaultChannel.send("Welcome to: " + member.guild.name + " Hope you enjoy it here")
-});
+client.on('unhandledRejection', err => console.error(`Uncaught Promise Rejection: \n${err.stack}`));
 
-Client.on("guildMemberRemove", member => {
-   member.guild.defaultChannel.send("Goodbye: " + member.user.username + " from " + member.guild.name)
-});
-
-Client.on("guildCreate", guild => {
-	console.log("Some one added the test bot to a server created by: " + guild.owner.user.username)
-});
-
-Client.on("message", async (message) => {
-	if (message.author.bot) return;
-	if (!message.content.startsWith(prefix)) return;
-	
-	let command = message.content.split(" ")[0];
-	command = command.slice(prefix.length);
-	
-	let args = message.content.split(" ").slice(1);
-	
-	if (command === "ping") {
-		message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
-	} else
-
-	if (command === "say") {
-		message.delete()
-        const embed = new Discord.RichEmbed()
-		.setColor(0x954D23)
-		.setDescription(message.author.username + " says: " + args.join(" "));
-		message.channel.send({embed})
-	} else
-
-	if (command == "help") {
-		const embed = new Discord.RichEmbed()
-		.setColor(0x954D23)
-		.setTitle("Command List:")
-		.addField("!help", "Will give the current command list")
-		.addField("!ping", "WIll show the ping time for the bot")
-		.addField("!say [text]", "Will make the bot say something")
-		.addField("!announcement [text]", "Will make the bot say an announcement and tag everyone")
-		.addField("!cat", "Will send a random cat image");
-		message.channel.send({embed})
-	}
-
-});
-
-Client.login("NDI1Mzk0OTMyNTgxNDAwNTc2.DZPVRg.VvWNQ1UWDhQswipG6sHf1TTuHPI");
+client.on("message", (message) => {
+    let args = message.content.split(" ").slice(1);    
+    if (message.content.startsWith(";announce")){    
+     client.channels.get("425397615778201630").send({embed: {
+            color: 3066993,
+            author: {
+              name: client.user.username,
+              icon_url: client.user.avatarURL
+            },
+            title: "Announcement",
+            url: "",
+            description: "This is an important announcement",
+            fields: [{
+                name: "Announcement",
+                value: args
+              }
+            ],
+            timestamp: new Date(),
+            footer: {
+              icon_url: client.user.avatarURL,
+              text: " "
+            }
+          }
+        });
+    } 
+client.login("pNDI1Mzk0OTMyNTgxNDAwNTc2.DZRJxA.8JK3KG_bO9WXjoFQG-3icFyIjGo");
