@@ -15,7 +15,7 @@ Client.on("ready", () => {
 // welcome message
 
 Client.on("guildCreate", guild => {
-	console.log("Some one added the Bot to the server created by Orangedude4221)
+	console.log("Some one added the Bot to the server created by Orangedude4221")
 });
 
 Client.on("message", async (message) => {
