@@ -1,11 +1,5 @@
-// Don't touch anything without asking GeneratedScript#3909 first. \\
-
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const snekfetch = require("snekfetch");
-
-
-// Begin Commands function \\
 
 client.on("message", (message) => {
     let args = message.content.split(" ").slice(1);    
